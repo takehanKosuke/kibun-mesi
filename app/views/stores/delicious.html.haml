@@ -17,7 +17,7 @@
             %tbody
               %tr
                 %td.store-img
-                  = image_tag store.image_url(:square_md), {:style => "width: 100px"}
+                  = image_tag store.image_url(:square_md), {:style => "width: 100px"} if store.image.present?
                 %td= store.name
                 %td= store.delicious
                 %td= store.health
