@@ -7,5 +7,11 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "/template_assets/css/style.css", :rel => "stylesheet"}/
+    %link{:href => "/template_assets/css/slide.css", :rel => "stylesheet"}/
+    %script{:src => "/template_assets/js/openclose.js"}
+    %script{:src => "/template_assets/js/fixmenu.js"}
+    %script{:src => "/template_assets/js/fixmenu_pagetop.js"}
+    %script{:src => "/template_assets/js/ddmenu_min.js"}
   %body
     = yield

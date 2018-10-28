@@ -1,0 +1,14 @@
+#contents
+  .inner
+    %section
+      %h2
+        おいしい飯
+        %span List of Reccomendations
+      %ul.list2
+        - @stores.each do |store|
+          %li
+            = link_to store_path(store.id) do
+              = store.name
+              = store.health
+              = store.fashonable
+              = store.delicious

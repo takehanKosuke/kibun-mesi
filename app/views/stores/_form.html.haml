@@ -1,14 +1,13 @@
 = form_with(model: store, local: true) do |form|
-  - if store.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(store.errors.count, "error")
-        prohibited this store from being saved:
-      %div
-        = form.label '名前', class: "col-sm-3 control-label"
-        = form.text_field :name, placeholder: '', require: true
-      %div
-        = form.label '内容', class: "col-sm-3 control-label"
-        = form.text_field :detail, placeholder: '', require: true
+  = form.label '名前', class: "col-sm-3 control-label"
+  = form.text_field :name, class: "form-control", placeholder: '', require: true
+  = form.label '内容', class: "col-sm-3 control-label"
+  = form.text_area :detail, class: "form-control", placeholder: '', require: true
+  = form.label '健康', class: "col-sm-3 control-label"
+  = form.number_field :health, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label 'おしゃれ', class: "col-sm-3 control-label"
+  = form.number_field :fashonable, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label '美味しさ', class: "col-sm-3 control-label"
+  = form.number_field :delicious, class: "form-control", placeholder: '', require: true, min: 1, max: 5
   .actions
     = form.submit

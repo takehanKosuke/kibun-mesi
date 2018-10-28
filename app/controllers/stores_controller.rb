@@ -25,16 +25,12 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
-
-    respond_to do |format|
+    # binding.pry
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render :show, status: :created, location: @store }
+        redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+        redirect_to :back
       end
-    end
   end
 
   # PATCH/PUT /stores/1
@@ -61,6 +57,22 @@ class StoresController < ApplicationController
     end
   end
 
+  def health
+    @stores = Store.all.order(health: :desc)
+  end
+
+  def fashonable
+    @stores = Store.all.order(fashonable: :desc)
+  end
+  
+  def delicious
+    @stores = Store.all.order(delicious: :desc)
+  end
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_store
@@ -69,6 +81,12 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.fetch(:store, {})
+      params.require(:store).permit(
+        :name,
+        :detail,
+        :health,
+        :fashonable,
+        :delicious
+      )
     end
 end

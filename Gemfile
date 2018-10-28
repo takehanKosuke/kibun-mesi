@@ -89,3 +89,7 @@ gem 'rails-erd'
 gem 'haml'
 gem 'haml-rails'
 gem 'erb2haml'
+
+# bootstrap4
+gem 'bootstrap'
+gem 'jquery-rails'
