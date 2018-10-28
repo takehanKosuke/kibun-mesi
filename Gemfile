@@ -83,3 +83,9 @@ gem 'summernote-rails'
 
 #output the ER  diagram
 gem 'rails-erd'
+
+
+# haml
+gem 'haml'
+gem 'haml-rails'
+gem 'erb2haml'
