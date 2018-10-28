@@ -72,10 +72,6 @@ gem 'mini_magick'
 gem 'i18n'
 gem 'enum_help'
 
-# bootstrap4
-gem 'bootstrap'
-gem 'jquery-rails'
-
 # write schema for model
 gem 'annotate'
 
