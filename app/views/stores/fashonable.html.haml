@@ -4,20 +4,22 @@
       %h2
         おしゃれ飯
         %span List of Reccomendations
-      %ul
-        - @stores.each do |store|
-          .pt-3
-            = link_to store_path(store.id) do
-              .store-box
-                - if store.image.present?
-                  = image_tag store.image_url(:square_md), class: 'store-img'
-                = store.name
-                .top-condition
-                  %p おしゃれポイント
-                  = store.fashonable
-                .second-condition
-                  %p けんこうポイント
-                  = store.health
-                .therd-condition
-                  %p うまいポイント
-                  = store.delicious
+      %table.table
+        %thead
+          %tr
+            %th
+            %th 名前
+            %th おしゃれポイント
+            %th うまいポイント
+            %th けんこうポイント
+            %th
+          - @stores.each do |store|
+            %tbody
+              %tr
+                %td.store-img
+                  = image_tag store.image_url(:square_md), {:style => "width: 100px"}
+                %td= store.name
+                %td= store.fashonable
+                %td= store.delicious
+                %td= store.health
+                %td= link_to '詳細', store_path(store.id), class:'btn btn-info'
