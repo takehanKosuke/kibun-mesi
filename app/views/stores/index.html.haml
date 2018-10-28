@@ -1,0 +1,61 @@
+-# %p#notice= notice
+-# %h1 Stores
+-# %table
+-#   %thead
+-#     %tr
+-#       %th 名前
+-#       %th 詳細
+-#       %th 健康
+-#       %th おしゃれ
+-#       %th 美味しさ
+-#   %tbody
+-#     - @stores.each do |store|
+-#       %tr
+-#         %td= store.name
+-#         %td= store.detail
+-#         %td= store.health
+-#         %td= store.fashonable
+-#         %td= store.delicious
+-#
+-#         %td= link_to 'Show', store
+-#         %td= link_to 'Edit', edit_store_path(store)
+-#         %td= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }
+-# %br/
+-# = link_to 'New Store', new_store_path
+
+
+
+
+
+%nav#menubar-s
+  %ul
+    %li
+      %a{:href => "index.html"}
+        ホーム
+        %span Home
+    %li
+      %a{:href => "recruit.html"}
+        健康
+        %span Health
+    %li
+      %a{:href => "info.html"}
+        雰囲気
+        %span Fashionable
+    %li
+      %a{:href => "faq.html"}
+        美味しさ
+        %span Delicious
+#contents
+  .inner
+    %section
+      %h2
+        おすすめ飯
+        %span List of Reccomendations
+      %ul.list2
+        - @stores.each do |store|
+          %li
+            = link_to store_path(store.id) do
+              - if store.image.present?
+                = image_tag store.image_url(:square_md), class: 'welcome-img'
+              = store.name
+              -# = link_to '編集', edit_store_path(store)

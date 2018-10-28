@@ -1,0 +1,52 @@
+#contents
+  .inner
+    .main
+      %section
+        %h2.type1= @store.name
+        .list
+          %span.icon.color1= @store.name
+          %h2
+            店舗のアピールポイント
+            %span Information
+          .container
+            %div
+              %canvas#myChart
+
+          %h4
+            %a{:href => "item.html"}= @store.name
+
+          %table.ta1
+            %tr
+              %th 店舗情報
+              %td= @store.name
+            %tr
+              %th 詳細
+              %td
+                %p= @store.detail
+            %tr
+              %th アクセス
+              %td JR五反田駅から徒歩5分
+
+
+%script{:language => "javascript", :type => "text/javascript"}
+  var result1 = 12;
+  var result2 = 13;
+  var result3 = 15;
+
+  var ctx = document.getElementById("myChart").getContext('2d');
+
+
+  var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+  labels: ["健康", "オシャレ", "美味しさ"],
+  datasets: [{
+  backgroundColor: [
+  "#00FF00",
+  "#0000FF",
+  "#FF0000",
+  ],
+  data: [result1, result2, result3]
+  }]
+  }
+  });

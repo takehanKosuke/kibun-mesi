@@ -1,0 +1,15 @@
+= form_with(model: store, local: true) do |form|
+  = form.label '名前', class: "col-sm-3 control-label"
+  = form.text_field :name, class: "form-control", placeholder: '', require: true
+  = form.label '内容', class: "col-sm-3 control-label"
+  = form.text_area :detail, class: "form-control", placeholder: '', require: true
+  = form.label '健康', class: "col-sm-3 control-label"
+  = form.number_field :health, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label 'おしゃれ', class: "col-sm-3 control-label"
+  = form.number_field :fashonable, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label '美味しさ', class: "col-sm-3 control-label"
+  = form.number_field :delicious, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label '写真', class: "col-sm-3 control-label"
+  = form.file_field :image, class: "form-control", require: true
+  .actions
+    = form.submit

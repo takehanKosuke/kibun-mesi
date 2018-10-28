@@ -1,0 +1,23 @@
+#contents
+  .inner
+    %section
+      %h2
+        けんこう飯
+        %span List of Reccomendations
+      %ul
+        - @stores.each do |store|
+          .pt-3
+            = link_to store_path(store.id) do
+              .store-box
+                - if store.image.present?
+                  = image_tag store.image_url(:square_md), class: 'store-img'
+                = store.name
+                .top-condition
+                  %p けんこうポイント
+                  = store.health
+                .second-condition
+                  %p おしゃれポイント
+                  = store.fashonable
+                .therd-condition
+                  %p うまいポイント
+                  = store.delicious

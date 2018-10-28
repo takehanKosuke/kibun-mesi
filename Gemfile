@@ -72,10 +72,6 @@ gem 'mini_magick'
 gem 'i18n'
 gem 'enum_help'
 
-# bootstrap4
-gem 'bootstrap'
-gem 'jquery-rails'
-
 # write schema for model
 gem 'annotate'
 
@@ -87,3 +83,13 @@ gem 'summernote-rails'
 
 #output the ER  diagram
 gem 'rails-erd'
+
+
+# haml
+gem 'haml'
+gem 'haml-rails'
+gem 'erb2haml'
+
+# bootstrap4
+gem 'bootstrap'
+gem 'jquery-rails'

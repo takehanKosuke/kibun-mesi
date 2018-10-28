@@ -1,0 +1,36 @@
+%header
+  %h1#logo
+    = link_to root_path do
+      %img{:alt => "SAMPLE SEARCH", :src => "/template_assets/images/logo_top2.png"}/
+  / スライドショー
+  %aside#mainimg
+    %img.slide1{:alt => "", :src => "/template_assets/images/1.jpg"}/
+    %img.slide2{:alt => "", :src => "/template_assets/images/2.jpg"}/
+    %img.slide3{:alt => "", :src => "/template_assets/images/3.jpg"}/
+  / スライドショー下部の装飾用画像
+  %img#kazari{:alt => "", :src => "/template_assets/images/123bg.png"}/
+/ PC用（801px以上端末）メニュー
+%nav#menubar.nav-fix-pos
+  %ul.inner
+    %li
+      = link_to health_path do
+        健康
+        %span Health
+      -# %ul.ddmenu
+      -#   %li
+      -#     %a{:href => "list.html"} 飲食店（XX件）
+    %li
+      = link_to fashonable_path do
+        雰囲気
+        %span Fashionable
+    -# %ul.ddmenu
+    -#   %li
+    -#     %a{:href => "list.html"} 飲食店（XX件）
+    %li
+      = link_to delicious_path do
+        美味しさ
+        %span Delicious
+    -# %ul.ddmenu
+    -#   %li
+    -#     %a{:href => "list.html"} 飲食店（XX件）
+/ 小さな端末用（900px以下端末）メニュー
