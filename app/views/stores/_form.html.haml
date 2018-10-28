@@ -9,5 +9,7 @@
   = form.number_field :fashonable, class: "form-control", placeholder: '', require: true, min: 1, max: 5
   = form.label '美味しさ', class: "col-sm-3 control-label"
   = form.number_field :delicious, class: "form-control", placeholder: '', require: true, min: 1, max: 5
+  = form.label '写真', class: "col-sm-3 control-label"
+  = form.file_field :image, class: "form-control", require: true
   .actions
     = form.submit

@@ -13,5 +13,9 @@
     %script{:src => "/template_assets/js/fixmenu.js"}
     %script{:src => "/template_assets/js/fixmenu_pagetop.js"}
     %script{:src => "/template_assets/js/ddmenu_min.js"}
-  %body
-    = yield
+    %script{:src => "/template_assets/js/Chart.js"}
+  %body#top
+    #container
+      = render 'layouts/header'
+      = yield
+      = render 'layouts/footer'

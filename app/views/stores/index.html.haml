@@ -24,72 +24,38 @@
 -# = link_to 'New Store', new_store_path
 
 
-%body#top
-  #container
-    %header
-      %h1#logo
-        %img{:alt => "SAMPLE SEARCH", :src => "/template_assets/images/logo_top2.png"}/
-      / スライドショー
-      %aside#mainimg
-        %img.slide1{:alt => "", :src => "/template_assets/images/1.jpg"}/
-        %img.slide2{:alt => "", :src => "/template_assets/images/2.jpg"}/
-        %img.slide3{:alt => "", :src => "/template_assets/images/3.jpg"}/
-      / スライドショー下部の装飾用画像
-      %img#kazari{:alt => "", :src => "/template_assets/images/123bg.png"}/
-    / PC用（801px以上端末）メニュー
-    %nav#menubar.nav-fix-pos
-      %ul.inner
-        %li
-          = link_to health_path do
-            健康
-            %span Health
-          %ul.ddmenu
-            %li
-              %a{:href => "list.html"} 飲食店（XX件）
-        %li
-          = link_to fashonable_path do
-            雰囲気
-            %span Fashionable
-        %ul.ddmenu
+
+
+
+%nav#menubar-s
+  %ul
+    %li
+      %a{:href => "index.html"}
+        ホーム
+        %span Home
+    %li
+      %a{:href => "recruit.html"}
+        健康
+        %span Health
+    %li
+      %a{:href => "info.html"}
+        雰囲気
+        %span Fashionable
+    %li
+      %a{:href => "faq.html"}
+        美味しさ
+        %span Delicious
+#contents
+  .inner
+    %section
+      %h2
+        おすすめ飯
+        %span List of Reccomendations
+      %ul.list2
+        - @stores.each do |store|
           %li
-            %a{:href => "list.html"} 飲食店（XX件）
-        %li
-          = link_to delicious_path do
-            美味しさ
-            %span Delicious
-        %ul.ddmenu
-          %li
-            %a{:href => "list.html"} 飲食店（XX件）
-    / 小さな端末用（900px以下端末）メニュー
-    %nav#menubar-s
-      %ul
-        %li
-          %a{:href => "index.html"}
-            ホーム
-            %span Home
-        %li
-          %a{:href => "recruit.html"}
-            健康
-            %span Health
-        %li
-          %a{:href => "info.html"}
-            雰囲気
-            %span Fashionable
-        %li
-          %a{:href => "faq.html"}
-            美味しさ
-            %span Delicious
-    #contents
-      .inner
-        %section
-          %h2
-            おすすめ飯
-            %span List of Reccomendations
-          %ul.list2
-            - @stores.each do |store|
-              %li
-                = link_to store_path(store.id) do
-                  = store.name
-                  = store.health
-                  = store.fashonable
-                  = store.delicious
+            = link_to store_path(store.id) do
+              - if store.image.present?
+                = image_tag store.image_url(:square_md), class: 'welcome-img'
+              = store.name
+              -# = link_to '編集', edit_store_path(store)

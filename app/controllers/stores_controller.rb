@@ -64,7 +64,7 @@ class StoresController < ApplicationController
   def fashonable
     @stores = Store.all.order(fashonable: :desc)
   end
-  
+
   def delicious
     @stores = Store.all.order(delicious: :desc)
   end
@@ -86,7 +86,8 @@ class StoresController < ApplicationController
         :detail,
         :health,
         :fashonable,
-        :delicious
+        :delicious,
+        :image
       )
     end
 end

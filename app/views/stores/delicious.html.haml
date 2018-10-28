@@ -4,11 +4,41 @@
       %h2
         おいしい飯
         %span List of Reccomendations
-      %ul.list2
-        - @stores.each do |store|
-          %li
+
+
+      %table.table
+        %caption テーブルの表題
+        %thead
+          %tr
+            %th
+            %th 名前
+            %th うまいポイント
+            %th けんこうポイント
+            %th おしゃれポイント
+          - @stores.each do |store|
             = link_to store_path(store.id) do
-              = store.name
-              = store.health
-              = store.fashonable
-              = store.delicious
+              %tbody
+                %tr
+                  %th{:scope => "row"} 1
+                  %td.store-img
+                    = image_tag store.image_url(:square_md)
+                  %td= store.delicious
+                  %td= store.health
+                  %td= store.fashonable
+
+        -#
+        -# - @stores.each do |store|
+        -#     = link_to store_path(store.id) do
+        -#       .store-box
+        -#         - if store.image.present?
+        -#           = image_tag store.image_url(:square_md), class: 'store-img'
+        -#         = store.name
+        -#         .top-condition
+        -#           %p うまいポイント
+        -#           = store.delicious
+        -#         .second-condition
+        -#           %p けんこうポイント
+        -#           = store.health
+        -#         .therd-condition
+        -#           %p おしゃれポイント
+        -#           = store.fashonable
