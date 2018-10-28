@@ -93,3 +93,6 @@ gem 'erb2haml'
 # bootstrap4
 gem 'bootstrap'
 gem 'jquery-rails'
+
+gem 'sqlite3', group: [:development, :test]
+gem 'pg', group: :production
