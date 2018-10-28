@@ -4,10 +4,7 @@
       %h2
         おいしい飯
         %span List of Reccomendations
-
-
       %table.table
-        %caption テーブルの表題
         %thead
           %tr
             %th
@@ -15,16 +12,17 @@
             %th うまいポイント
             %th けんこうポイント
             %th おしゃれポイント
+            %th
           - @stores.each do |store|
-            = link_to store_path(store.id) do
-              %tbody
-                %tr
-                  %th{:scope => "row"} 1
-                  %td.store-img
-                    = image_tag store.image_url(:square_md)
-                  %td= store.delicious
-                  %td= store.health
-                  %td= store.fashonable
+            %tbody
+              %tr
+                %td.store-img
+                  = image_tag store.image_url(:square_md), {:style => "width: 100px"}
+                %td= store.name
+                %td= store.delicious
+                %td= store.health
+                %td= store.fashonable
+                %td= link_to '詳細', store_path(store.id), class:'btn btn-info'
 
         -#
         -# - @stores.each do |store|
